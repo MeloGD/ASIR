@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simulación de procesos</title>
+	<link rel="stylesheet" type="text/css" href="/static/style.css"/>
+</head>
+<body>
+	<div id="first">
+		<h1>{{ vmachine.name }}</h1>
+		<h2>{{ vmachine.os }}</h2>
+	</div>
+	<div id="caja">
+	<div id="status">
+		<td> <p>Status: {{ vmachine.get_status() }}</p></td>
+		<td><a href="/change_status/0">Parar</a></td>
+		<td><a href="/change_status/1">Iniciar</a></td>
+		<td><a href="/change_status/2">Suspender</a></td>
+		</tr>
+	</div>
+	<div id="table1">
+		<table>
+			<tr>
+				<td>DISPOSITIVO</td>
+				<td>TOTAL</td>
+				<td>ACTIVIDAD</td>
+			</tr>
+			<tr>
+				<td>RAM</td>
+				<td>{{ vmachine.ram }}Gb</td>
+				<td>{{ vmachine.ram_usage() }}%</td>
+			</tr>
+			<tr>
+				<td>CPU</td>
+				<td>{{ vmachine.cpu }}Ghz</td>
+				<td>{{ vmachine.cpu_usage() }}%</td>
+			</tr>
+			<tr>
+				<td>HDD</td>
+				<td>{{ vmachine.hdd }}Gb</td>
+				<td>{{ vmachine.hdd_usage() }}%</td>
+			</tr>
+		</table>
+	</div>
+	</div>
+	<div id="proc">
+		<a href="/run_process">Lanzar proceso</a>
+	</div>
+	<div id="pid">
+		<table>
+			{% for proc in vmachine.proc %}
+			<tr>
+				<td>PID</td>
+			</tr>
+			<tr>
+				<td>RAM: {{ proc.ram }} GB | CPU: {{ proc.cpu }} Ghz | HDD: {{ proc.hdd }} GB</td>
+				{% endfor %}
+			</tr>
+
+	</table>
+	</div>
+</body>
+</html>

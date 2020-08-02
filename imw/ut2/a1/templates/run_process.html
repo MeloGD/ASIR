@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Procesos</title>
+	<link rel="stylesheet" type="text/css" href="/static/style.css"/>
+</head>
+<body>
+	<form method="post" action="/run_process">
+		<table>
+		<tr>
+			<td>PID</td>
+			<td><input type="text" name="pid"></td>
+		</tr>
+		<tr>
+			<td>RAM</td>
+			<td><input type="text" name="ram"></td>
+		</tr>
+		<tr>
+			<td>CPU</td>
+			<td><input type="text" name="cpu"></td>
+		</tr>
+		<tr>
+			<td>HDD</td>
+			<td><input type="text" name="hdd"></td>
+		</tr>
+		</table>
+		<input type="submit" value="Enviar">	
+	</form>
+		
+</body>
+</html>
